@@ -141,7 +141,7 @@ function carouselGoTo(index) {
 
 function carouselStartAuto() {
   carouselStopAuto();
-  carouselAutoTimer = setInterval(() => carouselGoTo(carouselIndex + 1), 1000);
+  carouselAutoTimer = setInterval(() => carouselGoTo(carouselIndex + 1), 2000);
 }
 
 function carouselStopAuto() {
@@ -250,7 +250,9 @@ function downloadPDF() {
 
   const element = document.getElementById('biodataContent');
   const actionBar = document.querySelector('.action-bar');
+  const gallerySection = document.getElementById('gallerySection');
   actionBar.style.display = 'none';
+  gallerySection.style.display = 'none';
 
   const opt = {
     margin: [10, 10, 10, 10],
@@ -263,10 +265,12 @@ function downloadPDF() {
 
   html2pdf().set(opt).from(element).save().then(() => {
     actionBar.style.display = '';
+    gallerySection.style.display = '';
     btn.textContent = originalText;
     btn.disabled = false;
   }).catch(() => {
     actionBar.style.display = '';
+    gallerySection.style.display = '';
     btn.textContent = originalText;
     btn.disabled = false;
   });
