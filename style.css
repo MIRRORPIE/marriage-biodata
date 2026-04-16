@@ -275,95 +275,6 @@ body {
   display: block;
 }
 
-/* ===== Carousel (hidden on desktop) ===== */
-.gallery-carousel {
-  display: none;
-  position: relative;
-  padding: 12px 0 50px;
-}
-
-.carousel-track-wrapper {
-  overflow: hidden;
-  border-radius: 10px;
-  margin: 0 44px;
-  border: 2px solid #e8d5bd;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: transform;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  aspect-ratio: 4/3;
-  cursor: pointer;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-60%);
-  background: rgba(255, 248, 240, 0.95);
-  border: 2px solid #c9956b;
-  color: #8b4513;
-  font-size: 28px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(180,130,60,0.15);
-  transition: background 0.2s;
-  padding: 0;
-}
-
-.carousel-btn:active {
-  background: #c9956b;
-  color: #fff;
-}
-
-.carousel-prev { left: 4px; }
-.carousel-next { right: 4px; }
-
-.carousel-dots {
-  position: absolute;
-  bottom: 14px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.carousel-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ddb894;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  padding: 0;
-}
-
-.carousel-dot.active {
-  background: #8b4513;
-  transform: scale(1.3);
-}
-
 /* ===== Lightbox ===== */
 .lightbox {
   display: none;
@@ -516,13 +427,16 @@ body.hindi {
     background: #fff !important;
   }
 
-  /* Gallery: hide grid, show carousel */
+  /* Gallery: single column stack on mobile */
   .gallery-grid {
-    display: none;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
   }
 
-  .gallery-carousel {
-    display: block;
+  .gallery-item {
+    aspect-ratio: 4/3;
+    border-radius: 8px;
   }
 
   .about-text {
@@ -550,8 +464,5 @@ body.hindi {
   }
   .lightbox {
     display: none !important;
-  }
-  .gallery-carousel {
-    display: none;
   }
 }

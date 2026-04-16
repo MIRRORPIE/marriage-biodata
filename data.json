@@ -17,7 +17,9 @@
   },
   "career": {
     "currentStatus": "Looking for Government Jobs",
-    "ctetQualification": "CTET Qualified"
+    "ctetQualification": "CTET Qualified",
+    "stetQualification": "STET Qualified",
+    "otherAchievements": "Earlier Cleared SSC GD Exam"
   },
   "family": {
     "fatherName": "Jagnarayan Sah",
@@ -57,7 +59,9 @@
     },
     "career": {
       "currentStatus": "सरकारी नौकरी की तलाश में",
-      "ctetQualification": "CTET उत्तीर्ण"
+      "ctetQualification": "CTET उत्तीर्ण",
+      "stetQualification": "STET उत्तीर्ण",
+      "otherAchievements": "पूर्व में SSC GD परीक्षा उत्तीर्ण"
     },
     "family": {
       "fatherName": "जगनारायण साह",
