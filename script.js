@@ -77,6 +77,11 @@ function renderDetails(containerId, data) {
 }
 
 // ===== Gallery =====
+let carouselIndex = 0;
+let carouselTotal = 0;
+let carouselAutoTimer = null;
+let carouselPhotos = [];
+
 function renderGallery(photos) {
   const section = document.getElementById('gallerySection');
   if (!photos || photos.length === 0) {
@@ -84,13 +89,68 @@ function renderGallery(photos) {
     return;
   }
   section.style.display = '';
+  carouselPhotos = photos;
+  carouselTotal = photos.length;
+  carouselIndex = 0;
 
+  // Desktop grid
   const grid = document.getElementById('galleryGrid');
   grid.innerHTML = photos.map(src =>
     `<div class="gallery-item" onclick="openLightbox('${escapeHtml(src)}')">
       <img src="${escapeHtml(src)}" alt="Gallery Photo" loading="lazy">
     </div>`
   ).join('');
+
+  // Mobile carousel slides
+  const track = document.getElementById('carouselTrack');
+  track.innerHTML = photos.map(src =>
+    `<div class="carousel-slide" onclick="openLightbox('${escapeHtml(src)}')">
+      <img src="${escapeHtml(src)}" alt="Gallery Photo" loading="lazy">
+    </div>`
+  ).join('');
+
+  // Dots
+  const dotsEl = document.getElementById('carouselDots');
+  dotsEl.innerHTML = photos.map((_, i) =>
+    `<button class="carousel-dot${i === 0 ? ' active' : ''}" onclick="carouselGoTo(${i})" aria-label="Slide ${i + 1}"></button>`
+  ).join('');
+
+  // Nav buttons
+  document.getElementById('carouselPrev').onclick = () => { carouselGoTo(carouselIndex - 1); carouselResetAuto(); };
+  document.getElementById('carouselNext').onclick = () => { carouselGoTo(carouselIndex + 1); carouselResetAuto(); };
+
+  // Touch/swipe
+  let touchStartX = 0;
+  track.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { carouselGoTo(carouselIndex + (diff > 0 ? 1 : -1)); carouselResetAuto(); }
+  }, { passive: true });
+
+  carouselGoTo(0);
+  carouselStartAuto();
+}
+
+function carouselGoTo(index) {
+  carouselIndex = ((index % carouselTotal) + carouselTotal) % carouselTotal;
+  document.getElementById('carouselTrack').style.transform = `translateX(-${carouselIndex * 100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((d, i) =>
+    d.classList.toggle('active', i === carouselIndex)
+  );
+}
+
+function carouselStartAuto() {
+  carouselStopAuto();
+  carouselAutoTimer = setInterval(() => carouselGoTo(carouselIndex + 1), 1000);
+}
+
+function carouselStopAuto() {
+  if (carouselAutoTimer) { clearInterval(carouselAutoTimer); carouselAutoTimer = null; }
+}
+
+function carouselResetAuto() {
+  carouselStopAuto();
+  carouselStartAuto();
 }
 
 function openLightbox(src) {
@@ -112,8 +172,9 @@ function renderBiodata(data) {
   const src = isHindi && data.hindi ? data.hindi : data;
 
   // Name
-  const name = isHindi && data.hindi?.personal?.name
-    ? data.hindi.personal.name : data.personal.name;
+  const hindiPersonal = data.hindi && data.hindi.personal ? data.hindi.personal : null;
+  const name = isHindi && hindiPersonal && hindiPersonal.name
+    ? hindiPersonal.name : data.personal.name;
   document.getElementById('candidateName').textContent = name || '';
 
   // Photo
@@ -193,7 +254,7 @@ function downloadPDF() {
 
   const opt = {
     margin: [10, 10, 10, 10],
-    filename: (biodataCache?.personal?.name || 'biodata').replace(/\s+/g, '_') + '_Biodata.pdf',
+    filename: ((biodataCache && biodataCache.personal && biodataCache.personal.name) ? biodataCache.personal.name : 'biodata').replace(/\s+/g, '_') + '_Biodata.pdf',
     image: { type: 'jpeg', quality: 0.95 },
     html2canvas: { scale: 2, useCORS: true, logging: false },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
@@ -214,7 +275,7 @@ function downloadPDF() {
 // ===== Init =====
 async function loadBiodata() {
   try {
-    const response = await fetch('data.json');
+    const response = await fetch('./data.json');
     if (!response.ok) throw new Error('Failed to load data');
     biodataCache = await response.json();
     renderBiodata(biodataCache);
