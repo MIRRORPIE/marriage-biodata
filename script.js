@@ -24,8 +24,8 @@ function calculateAge(dobString) {
 
 // ===== Label Mappings =====
 const labelsEn = {
-  dateOfBirth: "Date of Birth", age: "Age",
-  birthPlace: "Birth Place", height: "Height", complexion: "Complexion",
+  dateOfBirth: "Date of Birth",
+  height: "Height", complexion: "Complexion",
   gotra: "Gotra", caste: "Caste", mulBan: "Mul / Ban", motherTongue: "Mother Tongue",
   qualification: "Qualification",
   currentStatus: "Current Status", ctetQualification: "CTET",
@@ -37,8 +37,8 @@ const labelsEn = {
 };
 
 const labelsHi = {
-  dateOfBirth: "जन्म तिथि", age: "उम्र",
-  birthPlace: "जन्म स्थान", height: "ऊँचाई", complexion: "रंग",
+  dateOfBirth: "जन्म तिथि",
+  height: "उँचाई", complexion: "रंग",
   gotra: "गोत्र", caste: "जाति", mulBan: "मूल / बाण", motherTongue: "मातृभाषा",
   qualification: "शिक्षा",
   currentStatus: "वर्तमान स्थिति", ctetQualification: "CTET",
@@ -207,15 +207,8 @@ function renderBiodata(data) {
     ? '🙏 इस बायोडाटा को पढ़ने के लिए धन्यवाद 🙏'
     : '🙏 Thank you for taking the time to review this biodata 🙏';
 
-  // Build personal data with auto-calculated age injected after dateOfBirth
   const rawPersonal = src.personal || data.personal;
-  const personalOrdered = {};
-  for (const [k, v] of Object.entries(rawPersonal)) {
-    personalOrdered[k] = v;
-    if (k === 'dateOfBirth' && data.personal.dateOfBirth) {
-      personalOrdered.age = calculateAge(data.personal.dateOfBirth);
-    }
-  }
+  const personalOrdered = { ...rawPersonal };
 
   // Render detail sections
   renderDetails('personalDetails', personalOrdered);
