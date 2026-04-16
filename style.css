@@ -1,0 +1,385 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fff5f5 0%, #fef3e2 50%, #fff5f5 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #4a3728;
+}
+
+/* ===== Page Border ===== */
+.page-border {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fffdf8;
+  border: 3px solid #c9956b;
+  border-radius: 12px;
+  padding: 40px 36px;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(180, 130, 80, 0.15),
+              inset 0 0 0 6px #fffdf8,
+              inset 0 0 0 8px #e8caa8;
+}
+
+/* ===== Corner Ornaments ===== */
+.corner-ornament {
+  position: absolute;
+  font-size: 28px;
+  color: #c9956b;
+  line-height: 1;
+}
+.top-left { top: 10px; left: 14px; }
+.top-right { top: 10px; right: 14px; }
+.bottom-left { bottom: 10px; left: 14px; }
+.bottom-right { bottom: 10px; right: 14px; }
+
+/* ===== Header ===== */
+.biodata-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #fdf0dc 0%, #fce8c8 50%, #fdf0dc 100%);
+  border-radius: 10px;
+  padding: 24px 20px 18px;
+  border: 1px solid #e8cfa0;
+  box-shadow: 0 2px 12px rgba(180,130,60,0.08);
+}
+
+.om-symbol {
+  font-size: 46px;
+  color: #b8860b;
+  margin-bottom: 2px;
+  text-shadow: 0 2px 4px rgba(180,130,60,0.2);
+}
+
+.shree {
+  font-size: 15px;
+  color: #9a6e1a;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.biodata-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #7a3310;
+  letter-spacing: 3px;
+  text-shadow: 0 1px 3px rgba(140,70,20,0.12);
+}
+
+/* ===== Decorative Line ===== */
+.decorative-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 14px 0;
+}
+.decorative-line span {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9956b, transparent);
+}
+.decorative-line i {
+  color: #c9956b;
+  font-style: normal;
+  font-size: 14px;
+}
+
+/* ===== Photo Section ===== */
+.photo-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.photo-frame {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  border: 5px solid #c9956b;
+  padding: 5px;
+  background: linear-gradient(135deg, #fdf3e0, #fff);
+  overflow: hidden;
+  box-shadow: 0 0 0 3px #f3d9b5, 0 6px 24px rgba(180, 130, 80, 0.25);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.candidate-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #7a3310;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ===== Section Styles ===== */
+.section {
+  margin-bottom: 24px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #edd9bc;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(180,130,60,0.07);
+}
+
+.section-title {
+  text-align: center;
+  margin: 0;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, #fdf0dc, #fce8c8, #fdf0dc);
+  border-bottom: 1px solid #e8cfa0;
+}
+
+.section-title span {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #7a3310;
+  letter-spacing: 1px;
+}
+
+/* ===== Details Grid ===== */
+.details-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+}
+
+.detail-row {
+  display: contents;
+}
+
+.detail-label {
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #7a4a28;
+  background: #fdf5eb;
+  border-bottom: 1px solid #e8d5bd;
+  border-right: 1px solid #e8d5bd;
+}
+
+.detail-value {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #3a2a1a;
+  background: #fff;
+  border-bottom: 1px solid #e8d5bd;
+}
+
+.detail-row:nth-child(even) .detail-label {
+  background: #fef9f2;
+}
+
+.detail-row:nth-child(even) .detail-value {
+  background: #fffdf8;
+}
+
+.detail-row:last-child .detail-label,
+.detail-row:last-child .detail-value {
+  border-bottom: none;
+}
+
+/* ===== About Text ===== */
+.about-text {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #5c4a3a;
+  padding: 16px 24px;
+  font-style: italic;
+  background: transparent;
+}
+
+/* ===== Footer ===== */
+.biodata-footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.biodata-footer p {
+  font-size: 14px;
+  color: #8b6914;
+  font-weight: 500;
+}
+
+/* ===== Action Bar ===== */
+.action-bar {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.action-btn {
+  padding: 8px 18px;
+  border: 2px solid #c9956b;
+  border-radius: 8px;
+  background: #fffdf8;
+  color: #8b4513;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: #c9956b;
+  color: #fff;
+}
+
+/* ===== Gallery ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #e8d5bd;
+  cursor: pointer;
+  aspect-ratio: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(180, 130, 80, 0.25);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ===== Hindi Font ===== */
+body.hindi {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .page-border {
+    padding: 24px 16px;
+  }
+
+  .biodata-header h1 {
+    font-size: 24px;
+  }
+
+  .photo-frame {
+    width: 140px;
+    height: 140px;
+  }
+
+  .candidate-name {
+    font-size: 22px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-label {
+    border-right: none;
+    border-bottom: none;
+    padding-bottom: 2px;
+    font-size: 12px;
+    background: #fce9cc !important;
+  }
+
+  .detail-value {
+    padding-top: 4px;
+    font-weight: 600;
+    border-bottom: 1px solid #e8d5bd;
+    background: #fff !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .action-bar {
+    justify-content: center;
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+  .page-border {
+    box-shadow: none;
+    border: 2px solid #c9956b;
+  }
+  .action-bar {
+    display: none;
+  }
+  .lightbox {
+    display: none !important;
+  }
+}

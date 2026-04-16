@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marriage Biodata</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="action-bar">
+    <button id="langToggle" class="action-btn" onclick="toggleLanguage()">
+      हिन्दी
+    </button>
+    <button id="pdfBtn" class="action-btn" onclick="downloadPDF()">
+      📄 Download PDF
+    </button>
+  </div>
+
+  <!-- Decorative Border -->
+  <div class="page-border" id="biodataContent">
+    <div class="corner-ornament top-left">❀</div>
+    <div class="corner-ornament top-right">❀</div>
+    <div class="corner-ornament bottom-left">❀</div>
+    <div class="corner-ornament bottom-right">❀</div>
+
+    <!-- Header -->
+    <header class="biodata-header">
+      <div class="om-symbol">ॐ</div>
+      <div class="shree">॥ श्री गणेशाय नमः ॥</div>
+      <h1 id="mainTitle">Marriage Biodata</h1>
+      <div class="decorative-line">
+        <span></span><i>✦</i><span></span>
+      </div>
+    </header>
+
+    <!-- Photo Section -->
+    <section class="photo-section">
+      <div class="photo-frame">
+        <img id="profilePhoto" src="" alt="Profile Photo">
+      </div>
+      <h2 id="candidateName" class="candidate-name"></h2>
+    </section>
+
+    <!-- About Me -->
+    <section class="section" id="aboutSection">
+      <h3 class="section-title"><span data-en="About Me" data-hi="मेरे बारे में">About Me</span></h3>
+      <p id="aboutText" class="about-text"></p>
+    </section>
+
+    <!-- Personal Details -->
+    <section class="section">
+      <h3 class="section-title"><span data-en="Personal Details" data-hi="व्यक्तिगत विवरण">Personal Details</span></h3>
+      <div class="details-grid" id="personalDetails"></div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <h3 class="section-title"><span data-en="Education" data-hi="शिक्षा">Education</span></h3>
+      <div class="details-grid" id="educationDetails"></div>
+    </section>
+
+    <!-- Career -->
+    <section class="section">
+      <h3 class="section-title"><span data-en="Career Details" data-hi="करियर विवरण">Career Details</span></h3>
+      <div class="details-grid" id="careerDetails"></div>
+    </section>
+
+    <!-- Family -->
+    <section class="section">
+      <h3 class="section-title"><span data-en="Family Details" data-hi="पारिवारिक विवरण">Family Details</span></h3>
+      <div class="details-grid" id="familyDetails"></div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="gallerySection">
+      <h3 class="section-title"><span data-en="Photo Gallery" data-hi="फोटो गैलरी">Photo Gallery</span></h3>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section">
+      <h3 class="section-title"><span data-en="Contact Details" data-hi="संपर्क विवरण">Contact Details</span></h3>
+      <div class="details-grid" id="contactDetails"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="biodata-footer">
+      <div class="decorative-line">
+        <span></span><i>✦</i><span></span>
+      </div>
+      <p id="footerText">🙏 Thank you for taking the time to review this biodata 🙏</p>
+    </footer>
+  </div>
+
+  <!-- Gallery Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightboxImg" src="" alt="Gallery Photo">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "personal": {
+    "name": "Richa Kumari",
+    "photo": "richa_photo1.jpeg",
+    "dateOfBirth": "31 October 1999",
+    "birthTime": "01:37 PM",
+    "birthPlace": "Basudhar, Buxar, Bihar",
+    "height": "5'4\"",
+    "complexion": "Fair",
+    "gotra": "Kashyap",
+    "caste": "Vyahut Kalwar",
+    "mulBan": "Katekarak",
+    "motherTongue": "Hindi"
+  },
+  "education": {
+    "qualification": "BA (Hons) in History, B.Ed, Currently doing MA"
+  },
+  "career": {
+    "currentStatus": "Looking for Government Jobs",
+    "ctetQualification": "CTET Qualified"
+  },
+  "family": {
+    "fatherName": "Jagnarayan Sah",
+    "fatherOccupation": "Business",
+    "motherName": "Meera Devi",
+    "motherOccupation": "Homemaker",
+    "brother": "Raushan Kumar (Unmarried) — Data Analyst, HP",
+    "sister": "Sima Kumari (Married) — Engineer, Marvell Semiconductor"
+  },
+  "contact": {
+    "address": "Basudhar, Buxar, Bihar",
+    "phone": "+91-9934267235",
+    "whatsapp": "+91-9934267235"
+  },
+  "aboutMe": "A sincere, educated and family-oriented person. Passionate about teaching and currently preparing for government examination. Loves reading, cooking and spending time with family.",
+  "aboutMeHindi": "एक संस्कारी, शिक्षित और पारिवारिक व्यक्तित्व। शिक्षण में रुचि है और सरकारी परीक्षा की तैयारी कर रही हैं। पढ़ना, खाना बनाना और परिवार के साथ समय बिताना पसंद है।",
+  "galleryPhotos": [
+    "richa_photo1.jpeg",
+    "richa_photo2.jpeg",
+    "richa_photo3.jpeg"
+  ],
+  "hindi": {
+    "personal": {
+      "name": "रिचा कुमारी",
+      "dateOfBirth": "31 अक्टूबर 1999",
+      "birthTime": "दोपहर 01:37",
+      "birthPlace": "बसुधर, बक्सर, बिहार",
+      "height": "5'4\"",
+      "complexion": "गोरा",
+      "gotra": "कश्यप",
+      "caste": "व्याहुत कलवार",
+      "mulBan": "कटेकरक",
+      "motherTongue": "हिन्दी"
+    },
+    "education": {
+      "qualification": "बीए (ऑनर्स) इतिहास, बी.एड, वर्तमान में एमए कर रही हैं"
+    },
+    "career": {
+      "currentStatus": "सरकारी नौकरी की तलाश में",
+      "ctetQualification": "CTET उत्तीर्ण"
+    },
+    "family": {
+      "fatherName": "जगनारायण साह",
+      "fatherOccupation": "व्यापार",
+      "motherName": "मीरा देवी",
+      "motherOccupation": "गृहिणी",
+      "brother": "रौशन कुमार (अविवाहित) — डेटा एनालिस्ट, HP",
+      "sister": "सीमा कुमारी (विवाहित) — इंजीनियर, Marvell Semiconductor"
+    },
+    "contact": {
+      "address": "बसुधर, बक्सर, बिहार",
+      "phone": "+91-9934267235",
+      "whatsapp": "+91-9934267235"
+    }
+  }
+}
