@@ -74,20 +74,64 @@ function renderDetails(containerId, data) {
   container.innerHTML = html;
 }
 
+// ===== Carousel State =====
+let carouselIndex = 0;
+let carouselTotal = 0;
+let touchStartX = 0;
+
 // ===== Gallery =====
 function renderGallery(photos) {
-  const grid = document.getElementById('galleryGrid');
   const section = document.getElementById('gallerySection');
   if (!photos || photos.length === 0) {
     section.style.display = 'none';
     return;
   }
   section.style.display = '';
+  carouselTotal = photos.length;
+
+  // Desktop grid
+  const grid = document.getElementById('galleryGrid');
   grid.innerHTML = photos.map(src =>
     `<div class="gallery-item" onclick="openLightbox('${escapeHtml(src)}')">
       <img src="${escapeHtml(src)}" alt="Gallery Photo" loading="lazy">
     </div>`
   ).join('');
+
+  // Mobile carousel slides
+  const track = document.getElementById('carouselTrack');
+  track.innerHTML = photos.map((src, i) =>
+    `<div class="carousel-slide" onclick="openLightbox('${escapeHtml(src)}')">
+      <img src="${escapeHtml(src)}" alt="Photo ${i + 1}" loading="lazy">
+    </div>`
+  ).join('');
+
+  // Dots
+  const dotsContainer = document.getElementById('carouselDots');
+  dotsContainer.innerHTML = photos.map((_, i) =>
+    `<button class="carousel-dot${i === 0 ? ' active' : ''}" onclick="goToSlide(${i})" aria-label="Go to photo ${i + 1}"></button>`
+  ).join('');
+
+  // Arrow buttons
+  document.getElementById('carouselPrev').onclick = () => goToSlide(carouselIndex - 1);
+  document.getElementById('carouselNext').onclick = () => goToSlide(carouselIndex + 1);
+
+  // Touch swipe
+  track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goToSlide(diff > 0 ? carouselIndex + 1 : carouselIndex - 1);
+  }, { passive: true });
+
+  goToSlide(0);
+}
+
+function goToSlide(index) {
+  if (carouselTotal === 0) return;
+  carouselIndex = (index + carouselTotal) % carouselTotal;
+  document.getElementById('carouselTrack').style.transform = `translateX(-${carouselIndex * 100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === carouselIndex);
+  });
 }
 
 function openLightbox(src) {

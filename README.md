@@ -69,3 +69,7 @@ python3 -m http.server 8000
 
 # Then open http://localhost:8000
 ```
+
+
+cd /Users/ranjeetmishra/PerPro/marriage-biodata
+git add . && git commit -m "Update biodata" && git push
