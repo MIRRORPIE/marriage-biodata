@@ -24,7 +24,7 @@ function calculateAge(dobString) {
 
 // ===== Label Mappings =====
 const labelsEn = {
-  dateOfBirth: "Date of Birth", age: "Age", birthTime: "Birth Time",
+  dateOfBirth: "Date of Birth", age: "Age",
   birthPlace: "Birth Place", height: "Height", complexion: "Complexion",
   gotra: "Gotra", caste: "Caste", mulBan: "Mul / Ban", motherTongue: "Mother Tongue",
   qualification: "Qualification",
@@ -37,7 +37,7 @@ const labelsEn = {
 };
 
 const labelsHi = {
-  dateOfBirth: "जन्म तिथि", age: "उम्र", birthTime: "जन्म समय",
+  dateOfBirth: "जन्म तिथि", age: "उम्र",
   birthPlace: "जन्म स्थान", height: "ऊँचाई", complexion: "रंग",
   gotra: "गोत्र", caste: "जाति", mulBan: "मूल / बाण", motherTongue: "मातृभाषा",
   qualification: "शिक्षा",

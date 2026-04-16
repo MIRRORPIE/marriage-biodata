@@ -2,15 +2,14 @@
   "personal": {
     "name": "Richa Kumari",
     "photo": "richa_photo1.jpeg",
-    "dateOfBirth": "31 October 1999",
-    "birthTime": "01:37 PM",
+    "dateOfBirth": "10 April 2001",
     "birthPlace": "Basudhar, Buxar, Bihar",
     "height": "5'4\"",
     "complexion": "Fair",
     "gotra": "Kashyap",
     "caste": "Vyahut Kalwar",
     "mulBan": "Katekarak",
-    "motherTongue": "Hindi"
+    "motherTongue": "Bhojpuri, Hindi"
   },
   "education": {
     "qualification": "BA (Hons) in Political Science, B.Ed, Currently doing MA"
@@ -44,15 +43,14 @@
   "hindi": {
     "personal": {
       "name": "रिचा कुमारी",
-      "dateOfBirth": "31 अक्टूबर 1999",
-      "birthTime": "दोपहर 01:37",
+      "dateOfBirth": "10 अप्रैल 2001",
       "birthPlace": "बसुधर, बक्सर, बिहार",
       "height": "5'4\"",
       "complexion": "गोरा",
       "gotra": "कश्यप",
       "caste": "व्याहुत कलवार",
       "mulBan": "कटेकरक",
-      "motherTongue": "हिन्दी"
+      "motherTongue": "भोजपुरी, हिन्दी"
     },
     "education": {
       "qualification": "बीए (ऑनर्स) राजनीति विज्ञान, बी.एड, वर्तमान में एमए कर रही हैं"
